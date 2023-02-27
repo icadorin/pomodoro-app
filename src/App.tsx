@@ -10,7 +10,7 @@ function App() {
         longRestTime={900}
         cycles={4}
       />
-     </div>
+    </div>
   );
 }
 
