@@ -1,4 +1,4 @@
-import { useEffect, useRef} from 'react';
+import { useEffect, useRef } from 'react';
 
 export function useInterval<C extends CallableFunction>(
   callback: C,
@@ -6,7 +6,7 @@ export function useInterval<C extends CallableFunction>(
 ): void {
   const savedCallback = useRef<C>();
 
-  useEffect(() =>{
+  useEffect(() => {
     savedCallback.current = callback;
   }, [callback]);
 
@@ -14,9 +14,9 @@ export function useInterval<C extends CallableFunction>(
     function tick() {
       if (savedCallback.current) savedCallback.current();
     }
-    if(delay !== null) {
+    if (delay !== null) {
       const id = setInterval(tick, delay);
       return () => clearInterval(id);
     }
-  },[delay]);
+  }, [delay]);
 }
